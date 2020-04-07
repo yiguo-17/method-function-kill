@@ -102,15 +102,6 @@ describe(`person.ageUp`, () => {
     expect(person1.age).toBe(3)
     expect(person2.age).toBe(8)
   })
-
-  it(`doesn't change the person's age`, () => {
-    const person1 = newPerson('Alice', 'Jaffe', 2);
-    const person2 = newPerson('Elizabeth', 'Cho', 30);
-    person1.goingOn();
-    person2.goingOn();
-    expect(person1.age).toBe(2);
-    expect(person2.age).toBe(30);
-  })
 })
 
 describe('person.getFullName', () => {
