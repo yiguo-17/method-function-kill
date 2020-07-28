@@ -19,7 +19,6 @@ describe('person.firstName', () => {
   it(`is set to 'Anonymous' if no parameters are passed in to newPerson`, () => {
     const person1 = newPerson();
     expect(person1.firstName).toBe('Anonymous')
-    expect(person1.lastName).toBe('Person')
   })
 })
 
@@ -29,6 +28,11 @@ describe('person.lastName', () => {
     const person2 = newPerson('Mesuara', 'Kaleziq');
     expect(person1.lastName).toBe('Jaffe')
     expect(person2.lastName).toBe('Kaleziq')
+  })
+
+  it(`is set to 'Person' if no second parameter is passed in to newPerson`, () => {
+    const person1 = newPerson('noLastName');
+    expect(person1.lastName).toBe('Person')
   })
 })
 
