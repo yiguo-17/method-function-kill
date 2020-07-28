@@ -1,11 +1,10 @@
-# Method/Function/Kill
+## Method/Function/Kill
 
 Methods! They're cool!
 
 1. fork
 2. clone
-3. `npm install`
-4. `npm test`
+3. `jest --watch-all`
 
 
 ### Hints
