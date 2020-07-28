@@ -1,6 +1,4 @@
-const {
-  newPerson,
-} = require('./main.js')
+const newPerson = require('./main.js')
 
 
 describe('newPerson', () => {

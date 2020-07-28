@@ -13,6 +13,4 @@ if (typeof newPerson === 'undefined') {
 }
 
 
-module.exports = {
-  newPerson,
-}
+module.exports = newPerson;
