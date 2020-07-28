@@ -11,17 +11,17 @@ describe('newPerson', () => {
 })
 
 describe('person.firstName', () => {
-  it(`is set to 'Anonymous' if no parameters are passed in to newPerson`, () => {
-    const person1 = newPerson();
-    expect(person1.firstName).toBe('Anonymous')
-    expect(person1.lastName).toBe('Person')
-  })
-
   it(`is set to the first argument passed in to newPerson`, () => {
     const person1 = newPerson('Colin');
     const person2 = newPerson('Mesuara');
     expect(person1.firstName).toBe('Colin')
     expect(person2.firstName).toBe('Mesuara')
+  })
+
+  it(`is set to 'Anonymous' if no parameters are passed in to newPerson`, () => {
+    const person1 = newPerson();
+    expect(person1.firstName).toBe('Anonymous')
+    expect(person1.lastName).toBe('Person')
   })
 })
 
@@ -55,13 +55,11 @@ describe(`person.married`, () => {
   })
 
   it(`is set to false by default`, () => {
-    const person2 = newPerson('Biggie', 'Smalls', 58, false);
     const person1 = newPerson('John', 'Smith', 53);
-    const person3 = newPerson('Indiana', 'Jones', 18);
+    const person2 = newPerson('Indiana', 'Jones', 18);
 
     expect(person1.married).toBe(false)
     expect(person2.married).toBe(false)
-    expect(person3.married).toBe(false)
   })
 })
 
@@ -125,21 +123,21 @@ describe('person.getFullName', () => {
 })
 
 describe('marry', () => {
-  it(`sets the person's married status to true`, () => {
+  it(`sets the person's married status to married`, () => {
     const person1 = newPerson();
     const person2 = newPerson();
     person1.marry(person2)
     expect(person1.married).toBe(true);
   })
 
-  it(`sets the given person's married status to true`, () => {
+  it(`sets the given person's married status to married`, () => {
     const person1 = newPerson();
     const person2 = newPerson();
     person1.marry(person2);
     expect(person2.married).toBe(true);
   })
   
-  it(`sets the person's spouse to be the full name of the given person`, () => {
+  it(`sets the person's spouseName to be the full name of the given person`, () => {
     const person1 = newPerson('Peter', 'Parker');
     const person2 = newPerson('Mary', 'Jane');
     const person3 = newPerson('Clark', 'Kent');
@@ -150,7 +148,7 @@ describe('marry', () => {
     expect(person4.spouseName).toBe('Clark Kent');
   })
 
-  it(`sets the given person's spouse to be the full name of the original person`, () => {
+  it(`sets the given person's spouseName to be the full name of the original person`, () => {
     const person1 = newPerson('Peter', 'Parker');
     const person2 = newPerson('Mary', 'Jane');
     const person3 = newPerson('Clark', 'Kent');
@@ -163,7 +161,7 @@ describe('marry', () => {
 })
 
 describe('divorce', () => {
-  it(`sets the person's marital status to false`, () => {
+  it(`sets the person's marital status to not married`, () => {
     const person1 = newPerson('Peter', 'Parker');
     const person2 = newPerson('Mary', 'Jane');
     const person3 = newPerson('Clark', 'Kent');
@@ -176,7 +174,7 @@ describe('divorce', () => {
     expect(person3.married).toBe(false)
   })
 
-  it(`sets the marital status of the given person to false`, () => {
+  it(`sets the marital status of the given person to not married`, () => {
     const person1 = newPerson('Peter', 'Parker');
     const person2 = newPerson('Mary', 'Jane');
     const person3 = newPerson('Clark', 'Kent');
@@ -189,7 +187,7 @@ describe('divorce', () => {
     expect(person4.married).toBe(false)
   })
 
-  it(`removes the person's spouse name property entirely`, () => {
+  it(`removes the person's spouseName property entirely`, () => {
     const person1 = newPerson('Peter', 'Parker');
     const person2 = newPerson('Mary', 'Jane');
     const person3 = newPerson('Clark', 'Kent');
@@ -204,4 +202,3 @@ describe('divorce', () => {
     expect('spouseName' in person4).toBe(false)
   })
 })
-
